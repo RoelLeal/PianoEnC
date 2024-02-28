@@ -1,0 +1,17 @@
+https://cboard.cprogramming.com/c-programming/89695-generating-audio-c.html
+
+https://stackoverflow.com/questions/72296718/is-there-a-way-in-c-to-start-playing-a-sound-of-a-given-frequency
+
+https://stackoverflow.com/questions/29493837/how-to-make-a-beep-sound-in-c-on-windows
+
+https://www.geeksforgeeks.org/beep-function-in-c-with-examples/
+
+https://stackoverflow.com/questions/32444521/making-sound-with-different-frequencies
+
+https://celik-muhammed.medium.com/how-to-generate-440-hz-a-la-note-sin-wave-with-44-1-1e41f6ed9653
+
+http://computer-programming-forum.com/17-c-language/d6d55547442e1f91.htm
+
+https://www.ciudadpentagrama.com/2020/01/tabla-frecuencias-notas-musicales.html
+
+
