@@ -18,6 +18,8 @@
 #define let_k 107
 //RE
 #define let_l 108
+// CERRAR PROGRAMA
+#define let_esc 27
 
 int main() {
 	char letra;
@@ -59,10 +61,11 @@ int main() {
 				break;
 			case let_l:
 				// RE
-				Beep(493.88, 500);
+				Beep(554.365, 500);
+				break;
+			case let_esc:
+				return 0;
 				break;
 		}
 	}
-	
-	return 0;
 }
