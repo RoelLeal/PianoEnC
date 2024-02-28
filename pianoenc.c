@@ -31,33 +31,6 @@ void gotoxy(int x,int y){
       SetConsoleCursorPosition(hcon,dwPos); 
 }
 
-//void DO() {
-//	int i, j, y = 1;
-//	system("cls");
-//	system("color 1");
-//	for (i = 0; i < 5; i++) {
-//		gotoxy(50, 10 + i); 
-//		for (j = 0; j < 5; j++) {
-//			if ((i == 0 || i == 4) && (j > 0 && j < 4)) {
-//  				  printf("%c", 219); 
-//			 } else if ((j == 1 || j == 4) && (i > 0 && i < 4)) {
-//    			printf("%c", 219); 
-//				} else {
-//   				 printf(" "); 
-//				  }
-//			 }
-//	}
-//	for (i = 0; i < 5; i++) {
-//		gotoxy(60, 10 + i); // Posiciona el cursor en la coordenada (x, y+i)
-//		for (j = 0; j < 5; j++) {
-//			  if (i == 0 || i == 4 || j == 0 || j == 4) {
-//  				  printf("%c", 219); // Imprime el caracter con código ASCII 219 (bloque sólido)
-//				} else {
-//   				 printf(" "); // Imprime un espacio en blanco para el interior de la "O"
-//				 }
-//			}
-//	}
-//}
 void D(int x, int y) {
     // Definición de la letra "D" con el carácter ASCII 219
     int d[5][4] = {
@@ -277,6 +250,7 @@ int main() {
 				D(50,10);
 				O(60,10);
 				Beep(261.626, 500);
+				gotoxy(1,1);
 				break;
 			case let_s:
 				// RE
@@ -285,14 +259,16 @@ int main() {
 				R(50, 10);
 				E(60, 10);
 				Beep(293.66, 500);
+				gotoxy(1,1);
 				break;
 			case let_d:
 				// MI
 				system("cls");
-				system("color 3");
+				system("color C");
 				M(50, 10);
 				I(60, 10);
 				Beep(329.62, 500);
+				gotoxy(1,1);
 				break;
 			case let_f:
 				// FA
@@ -301,47 +277,53 @@ int main() {
 				F(50, 10);
 				A(60, 10);
 				Beep(349.22, 500);
+				gotoxy(1,1);
 				break;
 			case let_g:
 				// SOL
 				system("cls");
-				system("color 5");
+				system("color E");
 				S(45, 10);
 				O(55, 10);
 				L(65, 10);
 				Beep(391.99, 500);
+				gotoxy(1,1);
 				break;
 			case let_h:
 				// LA
 				system("cls");
-				system("color 6");
+				system("color 7");
 				L(50, 10);
 				A(60, 10);
 				Beep(440.00, 500);
+				gotoxy(1,1);
 				break;
 			case let_j:
 				// SI
 				system("cls");
-				system("color 7");
+				system("color F");
 				S(50, 10);
 				I(60, 10);
 				Beep(493.88, 500);
+				gotoxy(1,1);
 				break;
 			case let_k:
 				// DO
 				system("cls");
-				system("color 8");
+				system("color 9");
 				D(50, 10);
 				O(60, 10);
 				Beep(523.251, 500);
+				gotoxy(1,1);
 				break;
 			case let_l:
 				// RE
 				system("cls");
-				system("color 9");
+				system("color E");
 				R(50, 10);
 				E(60, 10);
 				Beep(554.365, 500);
+				gotoxy(1,1);
 				break;
 			case let_esc:
 				return 0;
