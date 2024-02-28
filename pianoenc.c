@@ -59,7 +59,7 @@ void DO() {
 	}
 }
 
-void R(int x,int y){
+void R(int x,int y) {
     // Definición de la letra "R" con el carácter ASCII 219
     int r[5][5] = {
         {219, 219, 219, 219, 177},
@@ -73,12 +73,34 @@ void R(int x,int y){
     // Posiciona el cursor y escribe la letra "R"
     for (i = 0; i < 5; i++) {
         for (j = 0; j < 5; j++) {
-            gotoxy(j + 1, i + 1); // Sumamos 1 para ajustar la posición
+            gotoxy(j + x, i + y); // Sumamos 1 para ajustar la posición
             printf("%c", r[i][j]);
         }
     }
 
     gotoxy(1, 7); // Mueve el cursor a una nueva línea después de imprimir la letra
+}
+void E(int x, int y) {
+	// Definición de la letra "E" con el carácter ASCII 219
+    int e[5][5] = {
+        {219, 219, 219, 219, 219},
+        {219, 32, 32, 32, 32},
+        {219, 219, 219, 219, 219},
+        {219, 32, 32, 32, 32},
+        {219, 219, 219, 219, 219}
+    };
+
+    int i, j;
+
+    // Posiciona el cursor y escribe la letra "E"
+    for (i = 0; i < 5; i++) {
+        for (j = 0; j < 5; j++) {
+            gotoxy(j + x, i + y); // Sumamos 1 para ajustar la posición
+            printf("%c", e[i][j]);
+        }
+    }
+
+    gotoxy(1, 7);
 }
 int main() {
 	char letra;
@@ -96,6 +118,7 @@ int main() {
 				system("cls");
 				system("color 2");
 				R(50, 10);
+				E(60, 10);
 				Beep(293.66, 500);
 				break;
 			case let_d:
