@@ -14,4 +14,6 @@ http://computer-programming-forum.com/17-c-language/d6d55547442e1f91.htm
 
 https://www.ciudadpentagrama.com/2020/01/tabla-frecuencias-notas-musicales.html
 
+https://es.stackoverflow.com/questions/218943/existe-una-manera-est%C3%A1ndar-de-limpiar-la-pantalla-en-c-c
+
 
