@@ -1,6 +1,5 @@
 #include <stdio.h>
 #include <windows.h>
-#include <conio.h>
 //DO
 #define let_a 97
 //RE
@@ -51,8 +50,7 @@ void D(int x, int y) {
         }
     }
 }
-
-void R(int x,int y) {
+void R(int x, int y) {
     // Definición de la letra "R" con el carácter ASCII 219
     int r[5][5] = {
         {219, 219, 219, 219, 177},
@@ -63,7 +61,7 @@ void R(int x,int y) {
     };
     gotoxy(x, y);
     int i, j;
-    // Posiciona el cursor y escribe la letra "R"
+    // Posiciona el cursor y escribe la letra "R"+
     for (i = 0; i < 5; i++) {
         for (j = 0; j < 5; j++) {
             gotoxy(j + x, i + y); // Sumamos 1 para ajustar la posición
@@ -249,7 +247,7 @@ int main() {
 				system("color 1");
 				D(50,10);
 				O(60,10);
-				Beep(261.626, 500);
+				Beep(261.626, 200);
 				gotoxy(1,1);
 				break;
 			case let_s:
@@ -258,7 +256,7 @@ int main() {
 				system("color 2");
 				R(50, 10);
 				E(60, 10);
-				Beep(293.66, 500);
+				Beep(293.66, 200);
 				gotoxy(1,1);
 				break;
 			case let_d:
@@ -267,7 +265,7 @@ int main() {
 				system("color C");
 				M(50, 10);
 				I(60, 10);
-				Beep(329.62, 500);
+				Beep(329.62, 200);
 				gotoxy(1,1);
 				break;
 			case let_f:
@@ -276,7 +274,7 @@ int main() {
 				system("color 4");
 				F(50, 10);
 				A(60, 10);
-				Beep(349.22, 500);
+				Beep(349.22, 200);
 				gotoxy(1,1);
 				break;
 			case let_g:
@@ -286,7 +284,7 @@ int main() {
 				S(45, 10);
 				O(55, 10);
 				L(65, 10);
-				Beep(391.99, 500);
+				Beep(391.99, 200);
 				gotoxy(1,1);
 				break;
 			case let_h:
@@ -295,7 +293,7 @@ int main() {
 				system("color 7");
 				L(50, 10);
 				A(60, 10);
-				Beep(440.00, 500);
+				Beep(440.00, 200);
 				gotoxy(1,1);
 				break;
 			case let_j:
@@ -304,7 +302,7 @@ int main() {
 				system("color F");
 				S(50, 10);
 				I(60, 10);
-				Beep(493.88, 500);
+				Beep(493.88, 200);
 				gotoxy(1,1);
 				break;
 			case let_k:
@@ -313,7 +311,7 @@ int main() {
 				system("color 9");
 				D(50, 10);
 				O(60, 10);
-				Beep(523.251, 500);
+				Beep(523.251, 200);
 				gotoxy(1,1);
 				break;
 			case let_l:
@@ -322,7 +320,7 @@ int main() {
 				system("color E");
 				R(50, 10);
 				E(60, 10);
-				Beep(554.365, 500);
+				Beep(554.365, 200);
 				gotoxy(1,1);
 				break;
 			case let_esc:
