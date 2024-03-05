@@ -20,6 +20,8 @@
 #define let_l 108
 // CERRAR PROGRAMA
 #define let_esc 27
+// GUARDAR
+#define let_cero 48
 
 void gotoxy(int x,int y){  
       HANDLE hcon;  
@@ -68,8 +70,6 @@ void R(int x, int y) {
             printf("%c", r[i][j]);
         }
     }
-
-    gotoxy(1, 7); // Mueve el cursor a una nueva línea después de imprimir la letra
 }
 void E(int x, int y) {
 	// Definición de la letra "E" con el carácter ASCII 219
@@ -90,8 +90,6 @@ void E(int x, int y) {
             printf("%c", e[i][j]);
         }
     }
-
-    gotoxy(1, 7);
 }
 void I(int x, int y) {
 	int i[5][3] = {
@@ -111,8 +109,6 @@ void I(int x, int y) {
             printf("%c", i[l][j]);
         }
     }
-
-    gotoxy(1, 17);
 }
 void M(int x, int y) {
 	int m[5][5] = {
@@ -132,8 +128,6 @@ void M(int x, int y) {
             printf("%c", m[i][j]);
         }
     }
-
-    gotoxy(1, 17);
 }
 void F(int x, int y) {
     // Definición de la letra "F" con el carácter ASCII 219
@@ -235,95 +229,139 @@ void L(int x, int y) {
         }
     }
 }
+
+void DO(FILE* file) {
+	system("cls");
+	system("color 1");
+	D(50,10);
+	O(60,10);
+	Beep(261.626, 200);
+	fprintf(file, "DO\n");
+	gotoxy(1,1);
+}
+void RE(FILE* file) {
+	system("cls");
+	system("color 2");
+	R(50, 10);
+	E(60, 10);
+	Beep(293.66, 200);
+	fprintf(file, "RE\n");
+	gotoxy(1,1);
+}
+void MI(FILE* file) {
+    system("cls");
+    system("color C");
+    M(50, 10);
+    I(60, 10);
+    Beep(329.62, 200);
+    fprintf(file, "MI\n");
+    gotoxy(1, 1);
+}
+void FA(FILE* file) {
+    system("cls");
+    system("color 4");
+    F(50, 10);
+    A(60, 10);
+    Beep(349.22, 200);
+    fprintf(file, "FA\n");
+    gotoxy(1, 1);
+}
+void SOL(FILE* file) {
+    system("cls");
+    system("color E");
+    S(45, 10);
+    O(55, 10);
+    L(65, 10);
+    Beep(391.99, 200);
+    fprintf(file, "SOL\n");
+    gotoxy(1, 1);
+}
+void LA(FILE* file) {
+    system("cls");
+    system("color 7");
+    L(50, 10);
+    A(60, 10);
+    Beep(440.00, 200);
+    fprintf(file, "LA\n");
+    gotoxy(1, 1);
+}
+void SI(FILE* file) {
+    system("cls");
+    system("color F");
+    S(50, 10);
+    I(60, 10);
+    Beep(493.88, 200);
+    fprintf(file, "SI\n");
+    gotoxy(1, 1);
+}
+void DO2(FILE* file) {
+    system("cls");
+    system("color 9");
+    D(50, 10);
+    O(60, 10);
+    Beep(523.251, 200);
+    fprintf(file, "DO2\n");
+    gotoxy(1, 1);
+}
+void RE2(FILE* file) {
+    system("cls");
+    system("color E");
+    R(50, 10);
+    E(60, 10);
+    Beep(554.365, 200);
+    fprintf(file, "RE2\n");
+    gotoxy(1, 1);
+}
+
 int main() {
 	char letra;
+	FILE* file = fopen("notas.txt", "w"); 
+	
 	while(1) {
 		letra = getch();
 		letra = tolower(letra);
 		switch(letra) {
 			case let_a:
 				// DO
-				system("cls");
-				system("color 1");
-				D(50,10);
-				O(60,10);
-				Beep(261.626, 200);
-				gotoxy(1,1);
+				DO(file);
 				break;
 			case let_s:
 				// RE
-				system("cls");
-				system("color 2");
-				R(50, 10);
-				E(60, 10);
-				Beep(293.66, 200);
-				gotoxy(1,1);
+				RE(file);
 				break;
 			case let_d:
 				// MI
-				system("cls");
-				system("color C");
-				M(50, 10);
-				I(60, 10);
-				Beep(329.62, 200);
-				gotoxy(1,1);
+				MI(file);
 				break;
 			case let_f:
 				// FA
-				system("cls");
-				system("color 4");
-				F(50, 10);
-				A(60, 10);
-				Beep(349.22, 200);
-				gotoxy(1,1);
+				FA(file);
 				break;
 			case let_g:
 				// SOL
-				system("cls");
-				system("color E");
-				S(45, 10);
-				O(55, 10);
-				L(65, 10);
-				Beep(391.99, 200);
-				gotoxy(1,1);
+				SOL(file);
 				break;
 			case let_h:
 				// LA
-				system("cls");
-				system("color 7");
-				L(50, 10);
-				A(60, 10);
-				Beep(440.00, 200);
-				gotoxy(1,1);
+				LA(file);
 				break;
 			case let_j:
 				// SI
-				system("cls");
-				system("color F");
-				S(50, 10);
-				I(60, 10);
-				Beep(493.88, 200);
-				gotoxy(1,1);
+				SI(file);
 				break;
 			case let_k:
-				// DO
-				system("cls");
-				system("color 9");
-				D(50, 10);
-				O(60, 10);
-				Beep(523.251, 200);
-				gotoxy(1,1);
+				// DO2
+				DO2(file);
 				break;
 			case let_l:
-				// RE
-				system("cls");
-				system("color E");
-				R(50, 10);
-				E(60, 10);
-				Beep(554.365, 200);
-				gotoxy(1,1);
+				// RE2
+				RE2(file);
 				break;
 			case let_esc:
+				return 0;
+				break;
+			case let_cero:
+				fclose(file);
 				return 0;
 				break;
 		}
