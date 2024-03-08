@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <windows.h>
+#include <string.h>
 //DO
 #define let_a 97
 //RE
@@ -22,6 +23,8 @@
 #define let_esc 27
 // GUARDAR
 #define let_cero 48
+// TAMAÑO MAXIMO DE LINEA
+#define MAX_LINE_LENGTH 10
 
 void gotoxy(int x,int y){  
       HANDLE hcon;  
@@ -230,140 +233,170 @@ void L(int x, int y) {
     }
 }
 
-void DO(FILE* file) {
+void DO() {
 	system("cls");
 	system("color 1");
 	D(50,10);
 	O(60,10);
 	Beep(261.626, 200);
-	fprintf(file, "DO\n");
 	gotoxy(1,1);
 }
-void RE(FILE* file) {
+void RE() {
 	system("cls");
 	system("color 2");
 	R(50, 10);
 	E(60, 10);
 	Beep(293.66, 200);
-	fprintf(file, "RE\n");
 	gotoxy(1,1);
 }
-void MI(FILE* file) {
+void MI() {
     system("cls");
     system("color C");
     M(50, 10);
     I(60, 10);
     Beep(329.62, 200);
-    fprintf(file, "MI\n");
     gotoxy(1, 1);
 }
-void FA(FILE* file) {
+void FA() {
     system("cls");
     system("color 4");
     F(50, 10);
     A(60, 10);
     Beep(349.22, 200);
-    fprintf(file, "FA\n");
     gotoxy(1, 1);
 }
-void SOL(FILE* file) {
+void SOL() {
     system("cls");
     system("color E");
     S(45, 10);
     O(55, 10);
     L(65, 10);
     Beep(391.99, 200);
-    fprintf(file, "SOL\n");
     gotoxy(1, 1);
 }
-void LA(FILE* file) {
+void LA() {
     system("cls");
     system("color 7");
     L(50, 10);
     A(60, 10);
     Beep(440.00, 200);
-    fprintf(file, "LA\n");
     gotoxy(1, 1);
 }
-void SI(FILE* file) {
+void SI() {
     system("cls");
     system("color F");
     S(50, 10);
     I(60, 10);
     Beep(493.88, 200);
-    fprintf(file, "SI\n");
     gotoxy(1, 1);
 }
-void DO2(FILE* file) {
+void DO2() {
     system("cls");
     system("color 9");
     D(50, 10);
     O(60, 10);
     Beep(523.251, 200);
-    fprintf(file, "DO2\n");
     gotoxy(1, 1);
 }
-void RE2(FILE* file) {
+void RE2() {
     system("cls");
     system("color E");
     R(50, 10);
     E(60, 10);
     Beep(554.365, 200);
-    fprintf(file, "RE2\n");
-    gotoxy(1, 1);
+    gotoxy(1, 0);
 }
 
 int main() {
-	char letra;
-	FILE* file = fopen("notas.txt", "w"); 
-	
-	while(1) {
-		letra = getch();
-		letra = tolower(letra);
-		switch(letra) {
-			case let_a:
-				// DO
-				DO(file);
-				break;
-			case let_s:
-				// RE
-				RE(file);
-				break;
-			case let_d:
-				// MI
-				MI(file);
-				break;
-			case let_f:
-				// FA
-				FA(file);
-				break;
-			case let_g:
-				// SOL
-				SOL(file);
-				break;
-			case let_h:
-				// LA
-				LA(file);
-				break;
-			case let_j:
-				// SI
-				SI(file);
-				break;
-			case let_k:
-				// DO2
-				DO2(file);
-				break;
-			case let_l:
-				// RE2
-				RE2(file);
-				break;
-			case let_esc:
-				return 0;
-				break;
-			case let_cero:
-				fclose(file);
-				return 0;
-				break;
-		}
-	}
+    char letra;
+    char linea[MAX_LINE_LENGTH];
+    FILE* text = fopen("notas.txt", "r");
+    FILE* file = fopen("notas.txt", "w"); 
+
+    while (1) {
+        letra = getch();
+        letra = tolower(letra);
+        switch (letra) {
+            case let_a:
+                // DO
+                DO();
+				fprintf(file, "DO\n");
+                break;
+            case let_s:
+                // RE
+                RE();
+				fprintf(file, "RE\n");
+                break;
+            case let_d:
+                // MI
+                MI();
+    			fprintf(file, "MI\n");
+                break;
+            case let_f:
+                // FA
+                FA();
+    			fprintf(file, "FA\n");
+                break;
+            case let_g:
+                // SOL
+                SOL();
+    			fprintf(file, "SOL\n");
+                break;
+            case let_h:
+                // LA
+                LA();
+                fprintf(file, "LA\n");
+                break;
+            case let_j:
+                // SI
+                SI();
+                fprintf(file, "SI\n");
+                break;
+            case let_k:
+                // DO2
+                DO2();
+                fprintf(file, "DO2\n");
+                break;
+            case let_l:
+                // RE2
+                RE2();
+                fprintf(file, "RE2\n");
+                break;
+            case let_esc:
+                fclose(file);
+		        while (fgets(linea, sizeof(linea), text)) {
+		            linea[strcspn(linea, "\n")] = 0;
+		            if(strcmp(linea, "DO") == 0) {
+		            	DO();
+					}
+					if(strcmp(linea, "RE") == 0) {
+		            	RE();
+					}
+					if(strcmp(linea, "MI") == 0) {
+		            	MI();
+					}
+					if(strcmp(linea, "FA") == 0) {
+		            	FA();
+					}
+					if(strcmp(linea, "SOL") == 0) {
+		            	SOL();
+					}
+					if(strcmp(linea, "LA") == 0) {
+		            	LA();
+					}
+					if(strcmp(linea, "SI") == 0) {
+		            	SI();
+					}
+					if(strcmp(linea, "DO2") == 0) {
+		            	DO2();
+					}
+					if(strcmp(linea, "RE2") == 0) {
+		            	RE2();
+					}
+		        }
+                fclose(text);
+                return 0;
+        }
+    }
+    return 0;
 }
