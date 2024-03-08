@@ -23,3 +23,9 @@ https://www.tutorialandexample.com/beep-function-in-c
 https://elcodigoascii.com.ar/codigos-ascii/letra-d-mayuscula-codigo-ascii-68.html
 
 https://www.youtube.com/watch?v=GI3Bcmk6zUY
+
+https://www.cs.uic.edu/~jbell/CourseNotes/C_Programming/basicTextFileIO.html
+
+https://www.programiz.com/c-programming/c-file-input-output
+
+https://www.learnc.net/c-tutorial/c-write-text-file/
