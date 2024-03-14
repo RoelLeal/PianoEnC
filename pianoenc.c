@@ -25,6 +25,8 @@
 #define let_cero 48
 // TAMAÑO MAXIMO DE LINEA
 #define MAX_LINE_LENGTH 10
+//Letra P
+#define let_p 80
 
 void gotoxy(int x,int y){  
       HANDLE hcon;  
@@ -36,7 +38,7 @@ void gotoxy(int x,int y){
 }
 
 void D(int x, int y) {
-    // Definición de la letra "D" con el carácter ASCII 219
+    // Definicion de la letra "D" con el carácter ASCII 219
     int d[5][4] = {
         {219, 219, 219, 32},
         {219, 32, 32, 219},
@@ -308,11 +310,51 @@ void RE2() {
 }
 
 int main() {
+	int n;
     char letra;
     char linea[MAX_LINE_LENGTH];
     FILE* text = fopen("notas.txt", "r");
-    FILE* file = fopen("notas.txt", "w"); 
-
+    FILE* file; 
+    
+    printf("Para reproducir ingresa 1 \nPara tocar piano ingresa 0\n");
+    scanf("%i",&n);
+    if(n == 1 ){
+    	fclose(file);
+		        while (fgets(linea, sizeof(linea), text)) {
+		            linea[strcspn(linea, "\n")] = 0;
+		            if(strcmp(linea, "DO") == 0) {
+		            	DO();
+					}
+					if(strcmp(linea, "RE") == 0) {
+		            	RE();
+					}
+					if(strcmp(linea, "MI") == 0) {
+		            	MI();
+					}
+					if(strcmp(linea, "FA") == 0) {
+		            	FA();
+					}
+					if(strcmp(linea, "SOL") == 0) {
+		            	SOL();
+					}
+					if(strcmp(linea, "LA") == 0) {
+		            	LA();
+					}
+					if(strcmp(linea, "SI") == 0) {
+		            	SI();
+					}
+					if(strcmp(linea, "DO2") == 0) {
+		            	DO2();
+					}
+					if(strcmp(linea, "RE2") == 0) {
+		            	RE2();
+					}
+		        }
+                fclose(text);
+                return 0;
+	}
+	else{
+	file = fopen("notas.txt", "w");
     while (1) {
         letra = getch();
         letra = tolower(letra);
@@ -398,5 +440,7 @@ int main() {
                 return 0;
         }
     }
+    
+ }
     return 0;
 }
