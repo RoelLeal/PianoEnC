@@ -318,8 +318,17 @@ int main() {
     
     printf("Para reproducir ingresa 1 \nPara tocar piano ingresa 0\n");
     scanf("%i",&n);
+    
+    
     if(n == 1 ){
     	fclose(file);
+    	if((fgets(linea, sizeof(linea), text)) == NULL){
+    		
+    		printf("No hay notas guardadas");
+		}
+		
+		else{
+		         		
 		        while (fgets(linea, sizeof(linea), text)) {
 		            linea[strcspn(linea, "\n")] = 0;
 		            if(strcmp(linea, "DO") == 0) {
@@ -350,6 +359,7 @@ int main() {
 		            	RE2();
 					}
 		        }
+			}
                 fclose(text);
                 return 0;
 	}
